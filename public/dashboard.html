@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | NovaStore</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <h1>NovaStore</h1>
+        <button id="logoutBtn">Logout</button>
+    </header>
+
+    <main class="dashboard">
+        <section class="welcome-card">
+            <h2>Welcome to NovaStore!</h2>
+            <p id="welcomeMessage">Loading your profile...</p>
+        </section>
+
+        <section class="profile-card">
+            <h2>My Profile</h2>
+            <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+            <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+            <p><strong>Account Type:</strong> <span id="userRole">Loading...</span></p>
+        </section>
+
+        <section class="orders-card">
+            <h2>My Orders</h2>
+            <p>You haven't placed any orders yet.</p>
+            <a href="index.html">Start Shopping →</a>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

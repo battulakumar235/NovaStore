@@ -1,0 +1,363 @@
+
+/* =================================
+   NOVASTORE ADMIN - 3D PREMIUM THEME
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%, #29473a, transparent 38%),
+        radial-gradient(circle at 85% 80%, #44352c, transparent 38%),
+        linear-gradient(135deg, #14251e, #252d29, #25232a);
+    background-attachment: fixed;
+    color: #f4f5ef;
+    min-height: 100vh;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 245px;
+    background: linear-gradient(180deg, #102c21, #193b2d);
+    color: white;
+    padding: 25px 18px;
+    position: fixed;
+    height: 100vh;
+    border-right: 1px solid rgba(226, 196, 126, 0.2);
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 45px;
+    color: #f4f5ef;
+}
+
+.logo span {
+    background: linear-gradient(90deg, #80bd98, #e8c477);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #d5e5db;
+    text-align: left;
+    font-size: 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+    background: linear-gradient(135deg, #315b46, #426c52);
+    border-color: rgba(232, 196, 119, 0.3);
+    color: #f3d58e;
+    transform: translateX(5px);
+}
+
+/* MAIN CONTENT */
+
+.main {
+    margin-left: 245px;
+    padding: 35px;
+    width: calc(100% - 245px);
+    min-width: 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.topbar h1 {
+    font-size: 28px;
+    color: #e8c477;
+}
+
+.welcome {
+    margin-bottom: 25px;
+    color: #c2c9bf;
+}
+
+.logout {
+    background: linear-gradient(135deg, #80ad8e, #426d53);
+    color: white;
+    border: 1px solid rgba(232, 196, 119, 0.25);
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* STATISTICS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: linear-gradient(145deg, #294438, #182c25);
+    color: white;
+    padding: 25px;
+    border: 1px solid rgba(232, 196, 119, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.35s ease;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: translateY(-8px) rotateX(3deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card h3 {
+    color: #c5d1c5;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #e8c477;
+}
+
+/* PANELS */
+
+.panel {
+    background: rgba(31, 49, 41, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #f4f5ef;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+.panel h2 {
+    margin-bottom: 20px;
+    color: #e8c477;
+}
+
+/* TABLES */
+
+.panel {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    color: #f4f5ef;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: #315348;
+    color: #f3d58e;
+}
+
+td {
+    color: #e1e8df;
+}
+
+tbody tr {
+    transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+    background: rgba(125, 174, 143, 0.12);
+}
+
+td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(232, 196, 119, 0.3);
+}
+
+/* FORMS */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #648b73;
+    border-radius: 8px;
+    margin-top: 6px;
+    background: #263a31;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #e8c477;
+    box-shadow: 0 0 0 3px rgba(232, 196, 119, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aab9ad;
+}
+
+form p {
+    margin-bottom: 13px;
+    color: #dce5dc;
+}
+
+/* BUTTONS */
+
+.primary-btn,
+.action-btn {
+    background: linear-gradient(135deg, #80ad8e, #426d53);
+    color: white;
+    border: 1px solid rgba(232, 196, 119, 0.25);
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn {
+    margin: 3px;
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #c94c4c, #8f2929);
+}
+
+button:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* SECTIONS */
+
+.section {
+    display: none;
+    background: rgba(31, 49, 41, 0.88);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.section.active {
+    display: block;
+}
+
+.section h2,
+.section h3 {
+    color: #e8c477;
+}
+
+/* MESSAGES */
+
+#message,
+#productMessage {
+    margin: 15px 0;
+    color: #a8d8ae;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+        width: calc(100% - 190px);
+        padding: 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard {
+        display: block;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .sidebar button {
+        width: auto;
+        margin-right: 5px;
+        padding: 10px;
+    }
+
+    .main {
+        margin: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .panel,
+    .section {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,269 @@
+
+/* =====================================
+   NOVASTORE REGISTER - PREMIUM 3D THEME
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+
+    background:
+        radial-gradient(circle at 15% 20%, #29473a, transparent 38%),
+        radial-gradient(circle at 85% 80%, #44352c, transparent 38%),
+        linear-gradient(135deg, #14251e, #252d29, #25232a);
+
+    background-size: 200% 200%;
+    animation: backgroundMove 12s ease infinite;
+}
+
+@keyframes backgroundMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Floating background lights */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.35;
+    z-index: 0;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite alternate;
+}
+
+body::before {
+    background: #80ad8e;
+    top: 5%;
+    left: 5%;
+}
+
+body::after {
+    background: #d5a957;
+    bottom: 5%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(40px, -35px) scale(1.2); }
+}
+
+/* Register container */
+
+.register-container {
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    animation: pageEnter 1s ease;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glass registration card */
+
+.register-box {
+    max-width: 420px;
+    margin: auto;
+    padding: 40px 35px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(41, 68, 56, 0.92),
+        rgba(24, 44, 37, 0.95)
+    );
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border: 1px solid rgba(232, 196, 119, 0.3);
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+
+    transition: transform 0.4s, box-shadow 0.4s;
+    transform-style: preserve-3d;
+}
+
+.register-box:hover {
+    transform: translateY(-6px) rotateX(2deg);
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(232, 196, 119, 0.1);
+}
+
+/* Heading */
+
+h1 {
+    text-align: center;
+    background: linear-gradient(90deg, #80bd98, #e8c477);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #c5d1c5;
+    margin-bottom: 30px;
+}
+
+/* Labels */
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f4f5ef;
+    font-weight: bold;
+}
+
+/* Input fields */
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 20px;
+
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(128, 173, 142, 0.45);
+    border-radius: 10px;
+
+    color: white;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: #bdc9bf;
+}
+
+input:focus {
+    border-color: #e8c477;
+    box-shadow: 0 0 18px rgba(232, 196, 119, 0.2);
+    transform: scale(1.02);
+}
+
+/* Register button */
+
+button {
+    width: 100%;
+    padding: 14px;
+
+    background: linear-gradient(135deg, #80ad8e, #426d53);
+    color: white;
+
+    border: 1px solid rgba(232, 196, 119, 0.35);
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(128, 173, 142, 0.3);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Messages */
+
+#message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #f4f5ef;
+}
+
+/* Login link */
+
+.login-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #d5e5db;
+}
+
+.login-text a,
+.back-link {
+    color: #e8c477;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-text a:hover,
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Back link */
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 480px) {
+    .register-box {
+        padding: 35px 24px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    body::before,
+    body::after {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

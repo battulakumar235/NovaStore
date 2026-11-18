@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaStore Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <div class="logo">Nova<span>Store</span></div>
+
+        <button class="active" onclick="showSection('overview', this)">Dashboard</button>
+        <button onclick="showSection('ordersSection', this)">Orders</button>
+        <button onclick="showSection('productsSection', this)">Products</button>
+        <button onclick="logout()">Logout</button>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p class="welcome">Welcome to NovaStore management.</p>
+            </div>
+            <button class="logout" onclick="logout()">Logout</button>
+        </header>
+
+        <p id="message">Loading dashboard...</p>
+
+        <!-- OVERVIEW -->
+        <section id="overview" class="section active">
+
+            <div class="stats">
+                <div class="card">
+                    <h3>Total Products</h3>
+                    <p id="products">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Orders</h3>
+                    <p id="orders">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Customers</h3>
+                    <p id="users">0</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>Welcome to NovaStore</h2>
+                <p>Manage your products, customers and orders from one place.</p>
+            </div>
+        </section>
+
+        <!-- ORDERS -->
+        <section id="ordersSection" class="section">
+            <div class="panel">
+                <h2>Order Management</h2>
+
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Products</th>
+                                <th>Total</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable">
+                            <tr>
+                                <td colspan="6">Loading orders...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section id="productsSection" class="section">
+
+            <div class="panel">
+                <h2 id="productFormTitle">Add New Product</h2>
+
+                <form id="productForm">
+                    <input type="hidden" id="productId">
+
+                    <p>
+                        <input id="productName" placeholder="Product Name" required>
+                    </p>
+
+                    <p>
+                        <input id="productDescription" placeholder="Description" required>
+                    </p>
+
+                    <p>
+                        <input id="productPrice" type="number" min="0.01"
+                               step="0.01" placeholder="Price" required>
+                    </p>
+
+                    <p>
+                        <input id="productImage" type="url"
+                               placeholder="Image URL" required>
+                    </p>
+
+                    <p>
+                        <input id="productCategory" placeholder="Category" required>
+                    </p>
+
+                    <p>
+                        <input id="productStock" type="number" min="0"
+                               step="1" value="10" placeholder="Stock" required>
+                    </p>
+
+                    <button class="primary-btn" type="submit" id="saveProductButton">
+                        Add Product
+                    </button>
+
+                    <button class="action-btn" type="button"
+                            id="cancelEditButton" onclick="resetProductForm()" hidden>
+                        Cancel Edit
+                    </button>
+                </form>
+
+                <p id="productMessage"></p>
+            </div>
+
+            <div class="panel">
+                <h2>Available Products</h2>
+
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable">
+                            <tr>
+                                <td colspan="6">Loading products...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script>
+function showSection(sectionId, button) {
+    document.querySelectorAll(".section").forEach(section => {
+        section.classList.remove("active");
+    });
+
+    document.getElementById(sectionId).classList.add("active");
+
+    document.querySelectorAll(".sidebar button").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+}
+
+function logout() {
+    sessionStorage.removeItem("novaToken");
+    sessionStorage.removeItem("novaUser");
+    window.location.href = "/login.html";
+}
+</script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

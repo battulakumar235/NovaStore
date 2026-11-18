@@ -1,0 +1,1179 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* =================================
+   1. GLOBAL SETTINGS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f4f1e9;
+    color: #203b2d;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+:root {
+    --background: #f4f1e9;
+    --surface: #f8f6ef;
+    --collection-bg: #e9e6da;
+    --text: #203b2d;
+    --muted: #777b72;
+    --accent: #315c45;
+    --gold: #a87546;
+    --border: #b7b9aa;
+}
+
+/* =================================
+   2. NAVIGATION
+================================= */
+
+.navbar {
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(244, 241, 233, 0.78);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border-bottom: 1px solid rgba(49, 92, 69, 0.12);
+    box-shadow: 0 8px 30px rgba(32, 59, 45, 0.05);
+
+    animation: navEnter 1s ease;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text);
+    letter-spacing: -1px;
+}
+
+.logo span,
+footer span {
+    color: var(--gold);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    position: relative;
+    color: #536354;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--gold);
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -7px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+/* NAVIGATION BUTTONS */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.shop-link,
+.theme-toggle {
+    padding: 12px 22px;
+    border: 1px solid var(--accent);
+    border-radius: 30px;
+    color: var(--accent);
+    background: transparent;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.shop-link:hover,
+.theme-toggle:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(168, 117, 70, 0.25);
+}
+
+/* =================================
+   3. HERO SECTION
+================================= */
+
+.hero {
+    min-height: 650px;
+    padding: 65px 8%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+
+    position: relative;
+
+    background:
+        radial-gradient(circle at 75% 45%, #d6dfca 0%, transparent 38%),
+        linear-gradient(120deg, #f4f1e9, #e9e6da);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: contentEnter 1.2s ease both;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.description {
+    max-width: 420px;
+    line-height: 1.9;
+    color: var(--muted);
+    margin: 25px 0 35px;
+    font-size: 15px;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 14px;
+}
+
+.primary-btn {
+    background: var(--accent);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--text);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #315c4530;
+}
+
+.secondary-btn {
+    border: 1px solid var(--border);
+    color: var(--accent);
+}
+
+.secondary-btn:hover {
+    background: white;
+    transform: translateY(-5px);
+}
+
+/* HERO STATISTICS */
+
+.hero-info {
+    display: flex;
+    gap: 55px;
+    margin-top: 65px;
+}
+
+.hero-info h3 {
+    font-size: 23px;
+    color: var(--accent);
+}
+
+.hero-info p {
+    font-size: 12px;
+    color: #85877e;
+    margin-top: 5px;
+}
+
+/* =================================
+   4. 3D PRODUCT SHOWCASE
+================================= */
+
+.visual-area {
+    height: 540px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1200px;
+    overflow: hidden;
+}
+
+/* BACKGROUND GLOW */
+
+.glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+
+    background: #c9d8c3;
+    filter: blur(70px);
+    opacity: 0.8;
+
+    animation: glowPulse 5s infinite alternate;
+}
+
+/* PRODUCT OBJECT */
+
+.product-object {
+    width: min(75%, 370px);
+    aspect-ratio: 1;
+
+    position: relative;
+    z-index: 2;
+
+    transform-style: preserve-3d;
+    animation: productFloat 5s ease-in-out infinite;
+
+    will-change: transform;
+    perspective: 1000px;
+}
+
+/* PRODUCT IMAGE */
+
+.main-product {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-radius: 30px;
+
+    box-shadow: 25px 35px 70px #203b2d30;
+
+    transform: rotateY(-12deg) rotateX(5deg);
+    transform-style: preserve-3d;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.18s ease-out,
+        box-shadow 0.3s ease;
+
+    will-change: transform;
+}
+
+.product-object:hover .main-product {
+    box-shadow:
+        25px 35px 80px rgba(32, 59, 45, 0.35),
+        0 0 35px rgba(168, 117, 70, 0.15);
+}
+
+/* PRODUCT SHADOW */
+
+.product-shadow {
+    position: absolute;
+    bottom: 70px;
+
+    width: 260px;
+    height: 35px;
+
+    background: #203b2d35;
+    filter: blur(20px);
+    border-radius: 50%;
+
+    animation: shadowFloat 5s ease-in-out infinite;
+}
+
+/* =================================
+   5. ORBIT ANIMATION
+================================= */
+
+.orbit {
+    position: absolute;
+    border: 1px solid #a5b49d80;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.orbit-one {
+    width: 420px;
+    height: 180px;
+    transform: rotate(-30deg);
+    animation: orbitSpin 15s linear infinite;
+}
+
+.orbit-two {
+    width: 480px;
+    height: 230px;
+    transform: rotate(35deg);
+    animation: orbitSpin 20s linear infinite reverse;
+}
+
+/* =================================
+   6. FLOATING LABELS
+================================= */
+
+.floating-label {
+    position: absolute;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    color: #536354;
+    background: #ffffffbb;
+
+    padding: 12px 16px;
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+
+    z-index: 3;
+    animation: labelFloat 4s ease-in-out infinite;
+}
+
+.label-one {
+    top: 45px;
+    right: 10px;
+}
+
+.label-two {
+    bottom: 110px;
+    left: 0;
+    animation-delay: 1s;
+}
+
+.small-badge {
+    position: absolute;
+    bottom: 75px;
+    right: 15px;
+
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
+
+    z-index: 3;
+}
+
+.small-badge span {
+    color: var(--gold);
+    font-size: 19px;
+    margin-right: 5px;
+}
+
+/* =================================
+   7. PRODUCT SLIDER CONTROLS
+================================= */
+
+.product-controls {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    z-index: 5;
+}
+
+.product-controls button {
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+
+    background: var(--accent);
+    color: white;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.product-controls button:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: scale(1.15);
+}
+
+#productNumber {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* =================================
+   8. COLLECTION SECTION
+================================= */
+
+.collection {
+    padding: 110px 8%;
+    text-align: center;
+    background: var(--collection-bg);
+    overflow: hidden;
+}
+
+.collection h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.collection-description {
+    max-width: 520px;
+    margin: 0 auto 55px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* PRODUCT GRID */
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    text-align: left;
+}
+
+/* PRODUCT CARD */
+
+.collection-card {
+    background: var(--surface);
+    border-radius: 18px;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        box-shadow 0.5s ease;
+}
+
+.collection-card.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.collection-card.reveal.visible:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 45px #203b2d20;
+}
+
+/* PRODUCT IMAGE */
+
+.collection-image {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.collection-card:hover .collection-image img {
+    transform: scale(1.1);
+}
+
+.collection-image span {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    padding: 9px 13px;
+    border-radius: 25px;
+
+    background: #ffffffdd;
+    color: var(--accent);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* PRODUCT DETAILS */
+
+.collection-details {
+    padding: 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.collection-details h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.collection-details p {
+    font-size: 12px;
+    color: #85877e;
+}
+
+.collection-details a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.collection-details a:hover {
+    color: var(--gold);
+}
+
+.collection-button {
+    margin-top: 45px;
+}
+
+/* =================================
+   9. FOOTER
+================================= */
+
+footer {
+    padding: 55px 8%;
+    background: #203b2d;
+    color: #f4f1e9;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #c4cbbf;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* =================================
+   10. SCROLL REVEAL
+================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =================================
+   11. ANIMATION KEYFRAMES
+================================= */
+
+@keyframes navEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contentEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes productFloat {
+    0%, 100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-22px) rotateY(8deg);
+    }
+}
+
+@keyframes shadowFloat {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(0.75);
+        opacity: 0.25;
+    }
+}
+
+@keyframes glowPulse {
+    from {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+@keyframes orbitSpin {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes labelFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* =================================
+   12. DARK MODE
+================================= */
+
+body.dark-mode {
+    --background: #111b16;
+    --surface: #24352b;
+    --collection-bg: #19251e;
+    --text: #f4f1e9;
+    --muted: #b5c2b8;
+    --accent: #86b99a;
+    --border: #637b69;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+/* DARK NAVBAR */
+
+body.dark-mode .navbar {
+    background: rgba(17, 27, 22, 0.82);
+    border-bottom: 1px solid rgba(181, 210, 189, 0.12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .logo,
+body.dark-mode .navbar nav a {
+    color: #f4f1e9;
+}
+
+body.dark-mode .shop-link,
+body.dark-mode .theme-toggle {
+    border-color: #b5d2bd;
+    color: #b5d2bd;
+}
+
+body.dark-mode .shop-link:hover,
+body.dark-mode .theme-toggle:hover {
+    background: #315c45;
+    color: white;
+}
+
+/* DARK HERO */
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(circle at 75% 45%, #294637 0%, transparent 40%),
+        linear-gradient(120deg, #111b16, #1b2b21);
+}
+
+body.dark-mode .hero h1 {
+    color: #f4f1e9;
+}
+
+body.dark-mode .description,
+body.dark-mode .hero-info p {
+    color: #b5c2b8;
+}
+
+body.dark-mode .hero-info h3,
+body.dark-mode #productNumber,
+body.dark-mode .small-badge {
+    color: #b5d2bd;
+}
+
+body.dark-mode .small-badge span {
+    color: #d5a36f;
+}
+
+body.dark-mode .floating-label {
+    background: #26382d;
+    color: #e5eee5;
+}
+
+body.dark-mode .secondary-btn {
+    color: #b5d2bd;
+    border-color: #637b69;
+}
+
+/* DARK COLLECTION */
+
+body.dark-mode .collection {
+    background: #19251e;
+}
+
+body.dark-mode .collection h2 {
+    color: #f4f1e9;
+}
+
+body.dark-mode .collection-description {
+    color: #b5c2b8;
+}
+
+body.dark-mode .collection-card {
+    background: #24352b;
+}
+
+body.dark-mode .collection-details h3 {
+    color: #f4f1e9;
+}
+
+body.dark-mode .collection-details p {
+    color: #b5c2b8;
+}
+
+body.dark-mode .collection-details a {
+    color: #b5d2bd;
+}
+
+body.dark-mode footer {
+    background: #0b130e;
+}
+
+/* =================================
+   13. MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 65px 7%;
+    }
+
+    .visual-area {
+        height: 430px;
+    }
+
+    .hero-info {
+        margin-top: 40px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+        min-height: 85px;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .shop-link,
+    .theme-toggle {
+        padding: 10px 13px;
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-image {
+        height: 250px;
+    }
+
+    .collection {
+        padding: 75px 6%;
+    }
+
+    .collection h2 {
+        font-size: 40px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .visual-area {
+        height: 360px;
+    }
+
+    .product-object {
+        width: 70%;
+    }
+
+    .orbit-one {
+        width: 300px;
+    }
+
+    .orbit-two {
+        width: 340px;
+    }
+
+    .hero-info {
+        gap: 30px;
+    }
+
+    .label-one {
+        right: 0;
+    }
+
+    .product-controls {
+        gap: 15px;
+    }
+
+    .product-controls button {
+        width: 42px;
+        height: 42px;
+    }
+
+}
+
+/* =================================
+   14. ACCESSIBILITY
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+
+/* =========================================
+   NOVASTORE PREMIUM 3D GREEN & GOLD THEME
+========================================= */
+
+:root {
+    --background: #101b16;
+    --surface: #1b2b22;
+    --collection-bg: #14231b;
+    --text: #f5f5e9;
+    --muted: #b8c4ba;
+    --accent: #315c45;
+    --gold: #d6b45c;
+    --border: #526b59;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(16, 32, 23, 0.90);
+    border-bottom: 1px solid #d6b45c35;
+    box-shadow: 0 8px 30px #00000040;
+}
+
+.logo,
+.navbar nav a {
+    color: var(--text);
+}
+
+.navbar nav a:hover {
+    color: var(--gold);
+}
+
+.shop-link,
+.theme-toggle {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.shop-link:hover,
+.theme-toggle:hover {
+    background: var(--gold);
+    color: #142018;
+}
+
+/* Hero */
+.hero {
+    background:
+        radial-gradient(circle at 75% 45%, #315c45 0%, transparent 42%),
+        linear-gradient(120deg, #101b16, #20372a);
+}
+
+.hero h1 {
+    color: var(--text);
+}
+
+.hero h1 span,
+.eyebrow {
+    color: var(--gold);
+}
+
+.description,
+.hero-info p {
+    color: var(--muted);
+}
+
+.hero-info h3,
+#productNumber,
+.small-badge {
+    color: var(--gold);
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #d6b45c, #a88738);
+    color: #142018;
+}
+
+.primary-btn:hover {
+    background: #f0cf78;
+    color: #142018;
+}
+
+.secondary-btn {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.secondary-btn:hover {
+    background: #294b38;
+    color: white;
+}
+
+/* 3D Product Showcase */
+.glow {
+    background: #d6b45c;
+    opacity: 0.35;
+}
+
+.main-product {
+    box-shadow: 25px 35px 70px #00000070;
+}
+
+.product-shadow {
+    background: #00000070;
+}
+
+.orbit {
+    border-color: #d6b45c70;
+}
+
+.floating-label {
+    background: #20372aee;
+    color: var(--gold);
+    border: 1px solid #d6b45c50;
+    box-shadow: 0 8px 25px #00000040;
+}
+
+.product-controls button {
+    background: #294b38;
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.product-controls button:hover {
+    background: var(--gold);
+    color: #142018;
+}
+
+/* Collection */
+.collection {
+    background: linear-gradient(145deg, #14231b, #1b3023);
+}
+
+.collection h2 {
+    color: var(--gold);
+}
+
+.collection-description {
+    color: var(--muted);
+}
+
+.collection-card {
+    background: linear-gradient(145deg, #20372a, #14231b);
+    border: 1px solid #d6b45c30;
+    box-shadow: 0 12px 30px #00000040;
+}
+
+.collection-card.reveal.visible:hover {
+    box-shadow: 0 25px 45px #00000070;
+}
+
+.collection-image span {
+    background: #d6b45c;
+    color: #142018;
+}
+
+.collection-details h3 {
+    color: var(--text);
+}
+
+.collection-details p {
+    color: var(--muted);
+}
+
+.collection-details a {
+    color: var(--gold);
+}
+
+.collection-details a:hover {
+    color: #f0cf78;
+}
+
+/* Footer */
+footer {
+    background: #0b130e;
+    color: var(--text);
+    border-top: 1px solid #d6b45c35;
+}
+
+footer p {
+    color: var(--muted);
+}
+
+/* Dark mode toggle uses the same theme */
+body.dark-mode {
+    --background: #101b16;
+    --surface: #1b2b22;
+    --collection-bg: #14231b;
+    --text: #f5f5e9;
+    --muted: #b8c4ba;
+    --accent: #315c45;
+    --gold: #d6b45c;
+    --border: #526b59;
+}
+
+/* Mobile adjustments */
+@media (max-width: 650px) {
+    .navbar {
+        background: rgba(16, 32, 23, 0.96);
+    }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

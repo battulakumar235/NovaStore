@@ -1,0 +1,178 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | NovaStore</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="brand">Nova<span>Store.</span></a>
+        <a href="index.html" class="back-link">← Continue Shopping</a>
+    </header>
+
+    <main class="checkout-container">
+
+        <div class="checkout-heading">
+            <span>SECURE CHECKOUT</span>
+            <h1>Complete Your Order<span>.</span></h1>
+            <p>You're just one step away from your favourite products.</p>
+        </div>
+
+        <div class="checkout-grid">
+
+            <section class="checkout-form">
+                <form id="checkoutForm">
+
+                    <div class="form-section">
+                        <h2>01. Delivery Information</h2>
+
+                        <label for="customerName">Full Name</label>
+                        <input type="text" id="customerName"
+                               placeholder="Enter your full name" required>
+
+                        <label for="customerEmail">Email Address</label>
+                        <input type="email" id="customerEmail"
+                               placeholder="Enter your email" required>
+
+                        <label for="customerPhone">Mobile Number</label>
+                        <input type="tel" id="customerPhone"
+                               placeholder="Enter 10-digit mobile number"
+                               pattern="[6-9][0-9]{9}" required>
+
+                        <label for="customerAddress">Delivery Address</label>
+                        <textarea id="customerAddress"
+                                  placeholder="House number, street, area"
+                                  required></textarea>
+
+                        <div class="address-row">
+                            <div>
+                                <label for="city">City</label>
+                                <input type="text" id="city"
+                                       placeholder="City" required>
+                            </div>
+
+                            <div>
+                                <label for="pincode">PIN Code</label>
+                                <input type="text" id="pincode"
+                                       placeholder="6-digit PIN"
+                                       pattern="[0-9]{6}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>02. Payment Method</h2>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment"
+                                   value="Cash on Delivery" checked>
+                            <span>💵 Cash on Delivery</span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="UPI">
+                            <span>📱 UPI Payment</span>
+                        </label>
+
+                        <div id="upiPaymentBox" class="payment-details" hidden>
+                            <h3>Scan & Pay</h3>
+                            <p>Scan this QR code using any UPI app.</p>
+
+                            <img
+                                src="images/novastore_upi_qr.png"
+                                     alt="Seal of Khansar UPI QR Code"
+                                    class="upi-qr">
+
+                            <p><strong>UPI ID:</strong> arise@okaxis</p>
+                            <p class="payment-hint">
+                                Enter your order amount in your UPI app.
+                            </p>
+                        </div>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="Card">
+                            <span>💳 Debit / Credit Card</span>
+                        </label>
+
+                        <div id="cardPaymentBox" class="payment-details" hidden>
+                            <h3>Card Payment</h3>
+                            <p>
+                                Card payments require a secure payment gateway.
+                                Card processing is not enabled yet.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="place-order">
+                        Place Your Order →
+                    </button>
+
+                    <p id="checkoutMessage"></p>
+
+                </form>
+            </section>
+
+            <aside class="order-summary">
+                <h2>Your Order</h2>
+
+                <div id="checkoutItems">
+                    <p>Loading your items...</p>
+                </div>
+
+                <div class="summary-total">
+                    <div>
+                        <span>Subtotal</span>
+                        <strong>₹<span id="subtotal">0</span></strong>
+                    </div>
+
+                    <div>
+                        <span>Delivery</span>
+                        <strong id="delivery">Free</strong>
+                    </div>
+
+                    <div class="grand-total">
+                        <span>Total Amount</span>
+                        <strong>₹<span id="grandTotal">0</span></strong>
+                    </div>
+                </div>
+
+                <p class="secure-note">
+                    🔒 Your checkout information is handled securely.
+                </p>
+            </aside>
+
+        </div>
+    </main>
+
+    <script>
+        const paymentOptions = document.querySelectorAll(
+            'input[name="payment"]'
+        );
+
+        const upiBox = document.getElementById("upiPaymentBox");
+        const cardBox = document.getElementById("cardPaymentBox");
+
+        function updatePaymentDisplay() {
+            const selected = document.querySelector(
+                'input[name="payment"]:checked'
+            );
+
+            upiBox.hidden = selected.value !== "UPI";
+            cardBox.hidden = selected.value !== "Card";
+        }
+
+        paymentOptions.forEach(option => {
+            option.addEventListener("change", updatePaymentDisplay);
+        });
+
+        updatePaymentDisplay();
+    </script>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
+```
